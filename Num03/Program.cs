@@ -48,17 +48,16 @@ double Result(int[,]matr)
 {
     double sum = 0;
     double result = 0;
-    for (int j = 0; j < matr.GetLength(1); j++)
+    for (int j = 0; j < matr.GetLength(1); j++) // счётчик столбцов (переход на другой столбец)
     {
         sum = 0;
         Console.WriteLine($" столбец {j}");
-        for (int i = 0; i < matr.GetLength(0); i++)
+        for (int i = 0; i < matr.GetLength(0); i++) // счётчик для строк 
         {
-                //Console.WriteLine($" строка {i}");
-                sum = sum + matr[i,j];
+                sum = sum + matr[i,j]; // подсчёт суммы
         }
         Console.WriteLine($" сумма {sum}");
-        result = sum / matr.GetLength(0); 
+        result = sum / matr.GetLength(0);  // вычисление среднего арифметического для элементов каждого столбца
         Console.WriteLine($" среднее арифметическое {result}");
     }
 return result; 
@@ -69,7 +68,7 @@ return result;
 
 
 
-int[,] Array = new int[3,5];
+int[,] Array = new int[4,4];
 FillArray(Array);
 PrintArray(Array);
 double Res = Result(Array);
