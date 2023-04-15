@@ -44,9 +44,16 @@ void Elements(int[,] matr, int i, int j)
     }
 }
 
-int[,] Array = new int[5,5];
+Console.Clear();
+int[,] Array = new int[10,10];
 FillArray(Array);
 PrintArray(Array);
-Elements(Array, 3, 4);
+
+Console.Write("Введите индекс строки массива: ");
+int i = int.Parse(Console.ReadLine());
+Console.Write("Введите индекс столбца массива: ");
+int j = int.Parse(Console.ReadLine());
+
+Elements(Array, i, j);
 
  
