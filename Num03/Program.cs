@@ -28,26 +28,11 @@ void PrintArray(int[,] matr)
     }
 } 
 
-/* double Result(int[,]matr)
- {
-    double sum = 0;
-    for (int j = 0; j < matr.GetLength(1); j++)
-    {
-        Console.WriteLine($" столбец {j}");
-        for (int i = 0; i < matr.GetLength(0); i++)
-        {
-                Console.WriteLine($" строка {i}");
-                sum = sum + matr[i,j];
-        }
-        Console.WriteLine($" сумма {sum}");
-    }
-return sum / matr.GetLength(0); 
-} */
-
-double Result(int[,]matr)
+string Mean(int[,]matr)
 {
     double sum = 0;
     double result = 0;
+    string Res = String.Empty;
     for (int j = 0; j < matr.GetLength(1); j++) // счётчик столбцов (переход на другой столбец)
     {
         sum = 0;
@@ -59,17 +44,19 @@ double Result(int[,]matr)
         Console.WriteLine($" сумма {sum}");
         result = sum / matr.GetLength(0);  // вычисление среднего арифметического для элементов каждого столбца
         Console.WriteLine($" среднее арифметическое {result}");
+        string res = $"{result}";
+        Res = Res + res + "; ";
     }
-return result; 
+return Res; 
 } 
 
 
 
 
 
-
+Console.Clear();
 int[,] Array = new int[4,4];
 FillArray(Array);
 PrintArray(Array);
-double Res = Result(Array);
-Console.WriteLine(Res);
+string Res = Mean(Array);
+Console.WriteLine($"Среднее арифметическое каждого столбца {Res}");
