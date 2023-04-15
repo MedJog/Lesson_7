@@ -12,23 +12,24 @@ Write("Введите количество строк массива: ");
 int m = int.Parse(ReadLine());
 Write("Введите количество столбцов массива: ");
 int n = int.Parse(ReadLine());
-int[,] array = FillArray(m,n);
+double[,] array = FillArray(m,n);
 PrintArray(array);
 
 
-int[,] FillArray(int m, int n)
+double[,] FillArray(int m, int n)
 {
-    int[,] Array = new int[m, n];
+    double[,] Array = new double[m, n];
+    Random random = new Random();
     for (int i = 0; i < m; i++)
         {
             for (int j = 0; j < n; j++)
         {
-             Array[i, j] = new Random().Next(-10,10);
+             Array[i, j] =  Convert.ToDouble(random.Next(-100, 100)/10.0); // генератор дробных чисел
         }
         }
         return Array;
 }
-void PrintArray(int[,] Arr)
+void PrintArray(double[,] Arr)
 {
     for (int i = 0; i < Arr.GetLength(0); i++)
         {
