@@ -12,7 +12,7 @@ void FillArray(int[,] matr)
     {
         for (int j = 0; j < matr.GetLength(1); j++)
         {
-             matr[i,j] = new Random().Next(1,5);
+             matr[i,j] = new Random().Next(1,10);
         }
     }
 } 
@@ -33,17 +33,14 @@ string Mean(int[,]matr)
     double sum = 0;
     double result = 0;
     string Res = String.Empty;
-    for (int j = 0; j < matr.GetLength(1); j++) // счётчик столбцов (переход на другой столбец)
+    for (int j = 0; j < matr.GetLength(1); j++) 
     {
         sum = 0;
-        Console.WriteLine($" столбец {j}");
-        for (int i = 0; i < matr.GetLength(0); i++) // счётчик для строк 
+        for (int i = 0; i < matr.GetLength(0); i++) 
         {
-                sum = sum + matr[i,j]; // подсчёт суммы
+                sum = sum + matr[i,j]; 
         }
-        Console.WriteLine($" сумма {sum}");
-        result = sum / matr.GetLength(0);  // вычисление среднего арифметического для элементов каждого столбца
-        Console.WriteLine($" среднее арифметическое {result}");
+        result = sum / matr.GetLength(0);  
         string res = $"{result}";
         Res = Res + res + "; ";
     }
@@ -55,7 +52,7 @@ return Res;
 
 
 Console.Clear();
-int[,] Array = new int[4,4];
+int[,] Array = new int[5,5];
 FillArray(Array);
 PrintArray(Array);
 string Res = Mean(Array);
